@@ -1,17 +1,6 @@
 class Chisel
-
-  # def parse(doc)
-  #   # '<h1>'
-  #   new = "#{doc}".gsub(/#/, '<h1>')
-  #   new = "#{doc}".gsub(/$/, '</h1>')
-  # end
-
-  # class Paragraph
-  #   def render
-  #   end
-  # end
-
 end
+
 
 class ChunkBuilder
   def parse(doc)
@@ -26,36 +15,38 @@ end
 class ChunkDetector
   def chunk_type_for(chunk)
     elements = chunk.match(/\A#+/).to_s
-    if elements == '#'
-      :h1
-    elsif elements == '##'
-      :h2
-    elsif elements == '###'
-      :h3
-    elsif elements == '####'
-      :h4
-    elsif elements == '#####'
-      :h5
-    elsif elements == '######'
-      :h6
-    else
-      :p
+    if elements      == '#' then :h1 #heading.render(chunk)
+      elsif elements == '##' then :h2
+      elsif elements == '###' then :h3
+      elsif elements == '####' then :h4
+      elsif elements == '#####' then :h5
+      elsif elements == '######' then :h6
+      else :p
     end
-
   end
 end
 
 
+class Heading
+  def initialize(chunk)
+    @chunk = chunk
+  end
+
+  def render
+    # remove markdown
+      # trimmed = chunk[2..-1]
+      @chunk.slice!(/\A#+\s/)
+
+    # string interpolation: put tags on both ends of the cleaned chunk
+      # if :h1 then "<h1>#{@chunk}</h1>"
+      "<h1>#{@chunk}</h1>"
+
+  end
+
+end
 
 
-# class H1
-#   def render
-#   end
-# end
 
-# # if <h1> then write </h1>
-#
-# '<1h/>'
-# '</h1>'
-
-# chunk builder = input.split
+# parser = Chisel.new
+# output = parser.parse(document)
+# puts output

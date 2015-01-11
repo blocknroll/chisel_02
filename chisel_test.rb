@@ -1,7 +1,7 @@
 gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'chisel'
+require './chisel'
 
 class ChiselTest < Minitest::Test
 
@@ -37,6 +37,26 @@ class ChiselTest < Minitest::Test
     **Food & Wine** this place has been packed every night."')
   end
 
+  def test_it_can_render_an_h1_heading
+    h = Heading.new('# My Life in Desserts')
+    assert_equal '<h1>My Life in Desserts</h1>', h.render
+  end
+
+  # def test_it_can_render_an_h2_heading
+  #   h = Heading.new('## Chapter 1: The Beginning')
+  #   assert_equal '<h2>Chapter 1: The Beginning</h2>', h.render
+  # end
+
+end
+
+
+
+
+
+
+
+
+
   # def test_h1
   #   parser = Chisel.new
   #   a_string = "# My Life in Desserts"
@@ -58,5 +78,3 @@ class ChiselTest < Minitest::Test
   #   result = parser.parse(a_string)
   #   assert_equal '<h2> My Life in Desserts', result
   # end
-
-end
