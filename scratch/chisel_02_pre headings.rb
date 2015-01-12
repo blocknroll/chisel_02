@@ -1,16 +1,4 @@
 class Chisel
-
-  PSUEDO
-  def parse(doc)
-    cb = ChunkBuilder.new
-    chunks = cb.parse(doc)
-
-    cd = ChunkDetector.new
-    cd.chunk_type_for(chunks)
-
-    h = Heading.new(chunk)
-    h.render(chunk)
-  end
 end
 
 
@@ -25,8 +13,8 @@ end
 
 
 class ChunkDetector
-  def chunk_type_for(chunks)
-    elements = chunks.match(/\A#+/).to_s
+  def chunk_type_for(chunk)
+    elements = chunk.match(/\A#+/).to_s
     if elements      == '#' then :h1 #heading.render(chunk)
       elsif elements == '##' then :h2
       elsif elements == '###' then :h3
