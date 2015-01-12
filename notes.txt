@@ -1,1 +1,12 @@
 https://github.com/turingschool/challenges/blob/master/chisel.markdown
+
+start with integration tests up front:
+  should eventually have more unit tests than integrations
+
+  checks the final output first
+  def test_final_output
+
+  then go back & implement h1
+  then come back & check integratuion
+
+call class: allows a workaround instead of 'if's'

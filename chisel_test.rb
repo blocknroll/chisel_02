@@ -37,15 +37,36 @@ class ChiselTest < Minitest::Test
     **Food & Wine** this place has been packed every night."')
   end
 
+
+  # HEADINGS ================================================
   def test_it_can_render_an_h1_heading
     h = Heading.new('# My Life in Desserts')
-    assert_equal '<h1>My Life in Desserts</h1>', h.render
+    assert_equal '<h1>My Life in Desserts</h1>', h.render(:h1)
   end
 
   def test_it_can_render_an_h2_heading
-    skip
     h = Heading.new('## Chapter 1: The Beginning')
-    assert_equal '<h2>Chapter 1: The Beginning</h2>', h.render
+    assert_equal '<h2>Chapter 1: The Beginning</h2>', h.render(:h2)
+  end
+
+  def test_it_can_render_an_h3_heading
+    h = Heading.new('### This is the h3 test')
+    assert_equal '<h3>This is the h3 test</h3>', h.render(:h3)
+  end
+
+  def test_it_can_render_an_h4_heading
+    h = Heading.new('#### This is the h4 test')
+    assert_equal '<h4>This is the h4 test</h4>', h.render(:h4)
+  end
+
+  def test_it_can_render_an_h5_heading
+    h = Heading.new('##### This is the h5 test')
+    assert_equal '<h5>This is the h5 test</h5>', h.render(:h5)
+  end
+
+  def test_it_can_render_an_h6_heading
+    h = Heading.new('###### This is the h6 test')
+    assert_equal '<h6>This is the h6 test</h6>', h.render(:h6)
   end
 
 end
