@@ -1,6 +1,4 @@
 class Chisel
-
-  PSUEDO
   def parse(doc)
     cb = ChunkBuilder.new
     chunks = cb.parse(doc)
@@ -46,28 +44,22 @@ class Heading
 
   def render
     # remove markdown
-      # trimmed = chunk[2..-1]
       @chunk.slice!(/\A#+\s/)
-
     # string interpolation: put tags on both ends of the cleaned chunk
       # if :h1 then "<h1>#{@chunk}</h1>"
       "<h1>#{@chunk}</h1>"
-
   end
-
 end
 
 
 
+document = '# My Life in Desserts
 
+## Chapter 1: The Beginning
 
-# document = '# My Life in Desserts
-#
-# ## Chapter 1: The Beginning
-#
-# "You just *have* to try the cheesecake," he said. "Ever since it appeared in
-# **Food & Wine** this place has been packed every night."'
-#
-# cb = ChunkBuilder.new
-# output = cb.parse(document)
-# puts output
+"You just *have* to try the cheesecake," he said. "Ever since it appeared in
+**Food & Wine** this place has been packed every night."'
+
+cb = ChunkBuilder.new
+output = cb.parse(document)
+puts output

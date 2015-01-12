@@ -42,10 +42,39 @@ class ChiselTest < Minitest::Test
     assert_equal '<h1>My Life in Desserts</h1>', h.render
   end
 
-  def test_it_can_render_an_h2_heading
-    skip
-    h = Heading.new('## Chapter 1: The Beginning')
-    assert_equal '<h2>Chapter 1: The Beginning</h2>', h.render
-  end
+  # def test_it_can_render_an_h2_heading
+  #   h = Heading.new('## Chapter 1: The Beginning')
+  #   assert_equal '<h2>Chapter 1: The Beginning</h2>', h.render
+  # end
 
 end
+
+
+
+
+
+
+
+
+
+  # def test_h1
+  #   parser = Chisel.new
+  #   a_string = "# My Life in Desserts"
+  #   result = parser.parse(a_string)
+  #   assert_equal '<h1> My Life in Desserts', result
+  # end
+  #
+  # def test_h1_close
+  #   parser = Chisel.new
+  #   a_string = "# My Life in Desserts"
+  #   result = parser.parse(a_string)
+  #   assert_equal '<h1> My Life in Desserts</h1>', result
+  # end
+
+
+  # def test_h2
+  #   parser = Chisel.new
+  #   a_string = "## My Life in Desserts"
+  #   result = parser.parse(a_string)
+  #   assert_equal '<h2> My Life in Desserts', result
+  # end
